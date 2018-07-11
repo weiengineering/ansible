@@ -1,0 +1,7 @@
+
+- name: Query a tenant
+  aci_tenant:
+    hostname: 10.11.2.16
+    username: admin
+    password: Worldcom1
+    state: query
