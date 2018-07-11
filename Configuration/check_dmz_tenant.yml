@@ -1,0 +1,12 @@
+- aci_rest:
+    host: 10.11.2.16
+    username: admin
+    password: Worldcom1
+
+    method: post
+    path: /api/mo/uni.json
+    content:
+      fvTenant:
+        attributes:
+          name: DMZ
+          descr: DMZ
