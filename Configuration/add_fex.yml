@@ -1,0 +1,39 @@
+- name: Create Fabric Extender
+  hosts: apic
+  connection: local
+  gather_facts: no
+
+
+  tasks:
+    - name: Ensure Tenant Exists
+      aci_rest:
+         hostname: "{{ inventory_hostname }}"
+         username: "admin"
+         password: "Worldcom1"
+         validate_certs: no
+         method: post
+         path: /api/mo/uni.json
+         content:
+           {
+   "infraFexP": {
+      "attributes": {
+         "dn": "uni/infra/fexprof-LEAF101_FEX101",
+         "name": "LEAF101_FEX101",
+         "rn": "fexprof-LEAF101_FEX101",
+         "status": "created,modified"
+      },
+      "children": [
+         {
+            "infraFexBndlGrp": {
+               "attributes": {
+                  "dn": "uni/infra/fexprof-LEAF101_FEX101/fexbundle-LEAF101_FEX101",
+                  "name": "LEAF101_FEX101",
+                  "rn": "fexbundle-LEAF101_FEX101",
+                  "status": "created,modified"
+               },
+               "children": []
+            }
+         }
+      ]
+   }
+}
