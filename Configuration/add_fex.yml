@@ -37,3 +37,47 @@
       ]
    }
 }
+
+    - name: Create FEX NIF Uplink
+      aci_rest:
+         hostname: "{{ inventory_hostname }}"
+         username: "admin"
+         password: "Worldcom1"
+         validate_certs: no
+         method: post
+         path: /api/mo/uni.json
+         content:
+           {
+   "infraHPortS": {
+      "attributes": {
+         "dn": "uni/infra/accportprof-LEAF101_PROF/hports-LEAF101_FEX101_NIF-typ-range",
+         "name": "LEAF101_FEX101_NIF",
+         "rn": "hports-LEAF101_FEX101_NIF-typ-range",
+         "status": "created,modified"
+      },
+      "children": [
+         {
+            "infraPortBlk": {
+               "attributes": {
+                  "dn": "uni/infra/accportprof-LEAF101_PROF/hports-LEAF101_FEX101_NIF-typ-range/portblk-block2",
+                  "fromPort": "9",
+                  "toPort": "10",
+                  "name": "block2",
+                  "rn": "portblk-block2",
+                  "status": "created,modified"
+               },
+               "children": []
+            }
+         },
+         {
+            "infraRsAccBaseGrp": {
+               "attributes": {
+                  "tDn": "uni/infra/fexprof-LEAF101_FEX101/fexbundle-LEAF101_FEX101",
+                  "status": "created,modified"
+               },
+               "children": []
+            }
+         }
+      ]
+   }
+}
