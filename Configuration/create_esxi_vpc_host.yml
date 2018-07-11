@@ -13,7 +13,7 @@
 #  connection: local
 #  gather_facts: yes
  
-  vars:
+#  vars:
     # comment out as external JSON in-use
     #esxi_server_name : "ESXI-0102"
     #vcenter_dvs : "DC-DVS-V012"
