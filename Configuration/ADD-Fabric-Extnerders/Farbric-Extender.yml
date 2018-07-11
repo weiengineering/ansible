@@ -1,19 +1,45 @@
 ---
-- name: Hello World!
-  aci_rest:
-    host: 10.11.2.16
-    username: admin
-    password: Worldcom1
-    validate_certs: no
-    path: /api/mo/uni.json
-    method: post
-    content:
-      {
-        "fvTenant": {
-          "attributes": {
-            "name": "Sales",
-            "descr": "Sales departement"
-          }
-        }
-      }
-  delegate_to: localhost
+
+- name: playbook for creating Fabric Extenders
+  gather_facts: no
+
+  tasks:
+
+    # PREP
+
+    #- name: ensure tenant exists
+    #  aci_tenant: name=ACILab descr='tenant by Ansible' host={{ inventory_hostname }} username={{ user }} password={{ pass }}
+
+    # TESTING APP NET PROFILES AND EPGS
+
+      - aci-rest:
+         host: "{{ inventory_hostname }}"
+         username: "{{ user }}"
+         password: "{{ pass }}"
+         
+         method: post
+         path: /api/mo/uni.json
+         content:
+           {
+   "infraFexP": {
+      "attributes": {
+         "dn": "uni/infra/fexprof-LEAF101_FEX101",
+         "name": "LEAF101_FEX101",
+         "rn": "fexprof-LEAF101_FEX101",
+         "status": "created,modified"
+      },
+      "children": [
+         {
+            "infraFexBndlGrp": {
+               "attributes": {
+                  "dn": "uni/infra/fexprof-LEAF101_FEX101/fexbundle-LEAF101_FEX101",
+                  "name": "LEAF101_FEX101",
+                  "rn": "fexbundle-LEAF101_FEX101",
+                  "status": "created,modified"
+               },
+               "children": []
+            }
+         }
+      ]
+   }
+}
