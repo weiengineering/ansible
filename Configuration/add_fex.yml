@@ -1,5 +1,5 @@
 - name: Create Fabric Extender
-  hosts: apic
+  hosts: all
   connection: local
   gather_facts: no
 
