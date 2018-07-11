@@ -1,3 +1,5 @@
+---
+
 - name: Add a tenant using a JSON string
   aci_rest:
     hostname: '{{ inventory_hostname }}'
