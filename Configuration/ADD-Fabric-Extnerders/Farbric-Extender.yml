@@ -1,8 +1,19 @@
 ---
 - name: Hello World!
-  hosts: all
- 
-  tasks:
- 
-  - name: Hello World!
-    shell: echo "Hi! Tower is working."
+  aci_rest:
+    host: apic
+    username: admin
+    private_key: pki/admin.key
+    validate_certs: no
+    path: /api/mo/uni.json
+    method: post
+    content:
+      {
+        "fvTenant": {
+          "attributes": {
+            "name": "Sales",
+            "descr": "Sales departement"
+          }
+        }
+      }
+  delegate_to: localhost
