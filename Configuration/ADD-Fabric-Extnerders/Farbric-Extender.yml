@@ -1,8 +1,6 @@
 ---
 
 - name: playbook for creating Fabric Extenders
-  hosts: apic1
-  connection: local
   gather_facts: no
 
   tasks:
@@ -14,8 +12,7 @@
 
     # TESTING APP NET PROFILES AND EPGS
 
-    - name: Create FEX Profile
-      aci-rest:
+      - aci-rest:
          host: "{{ inventory_hostname }}"
          username: "{{ user }}"
          password: "{{ pass }}"
