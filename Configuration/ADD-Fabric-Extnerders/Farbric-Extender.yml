@@ -1,9 +1,9 @@
 ---
 - name: Hello World!
   aci_rest:
-    host: apic
+    host: 10.11.2.16
     username: admin
-    private_key: pki/admin.key
+    password: Worldcom1
     validate_certs: no
     path: /api/mo/uni.json
     method: post
