@@ -9,9 +9,9 @@
 #
 #
 # name: ESXi Host VPC Interface Setup
-  hosts: all
-  connection: local
-  gather_facts: yes
+#  hosts: all
+#  connection: local
+#  gather_facts: yes
  
   vars:
     # comment out as external JSON in-use
