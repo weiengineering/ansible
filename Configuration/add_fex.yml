@@ -37,9 +37,7 @@
       ]
    }
 }
-  loop:
-     - 103
-     - 104
+
      
     - name: Create FEX NIF Uplink
       aci_rest:
@@ -84,9 +82,7 @@
       ]
    }
 }
-  loop:
-     - 103
-     - 104
+
 
     - name: Static Port Binding
       aci_rest:
