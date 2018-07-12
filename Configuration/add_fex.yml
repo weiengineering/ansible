@@ -2,6 +2,7 @@
   hosts: all
   connection: local
   gather_facts: no
+  leaf_num: 103
 
 
   tasks:
@@ -17,18 +18,18 @@
            {
                "infraFexP": {
                   "attributes": {
-                     "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101",
-                     "name": "LEAF\"{{ item }}\"_FEX101",
-                     "rn": "fexprof-LEAF\"{{ item }}\"_FEX101",
+                     "dn": "uni/infra/fexprof-LEAF\"{{ leaf_num }}\"_FEX101",
+                     "name": "LEAF\"{{ leaf_num }}\"_FEX101",
+                     "rn": "fexprof-LEAF\"{{ leaf_num }}\"_FEX101",
                      "status": "created,modified"
                   },
                   "children": [
                      {
                         "infraFexBndlGrp": {
                            "attributes": {
-                              "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
-                              "name": "LEAF\"{{ item }}\"_FEX101",
-                              "rn": "fexbundle-\"{{ item }}\"_FEX101",
+                              "dn": "uni/infra/fexprof-LEAF\"{{ leaf_num }}\"_FEX101/fexbundle-LEAF\"{{ leaf_num }}\"_FEX101",
+                              "name": "LEAF\"{{ leaf_num }}\"_FEX101",
+                              "rn": "fexbundle-\"{{ leaf_num }}\"_FEX101",
                               "status": "created,modified"
                            },
                            "children": []
@@ -50,16 +51,16 @@
            {
                "infraHPortS": {
                   "attributes": {
-                     "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
-                     "name": "LEAF\"{{ item }}\"_FEX101_NIF",
-                     "rn": "hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
+                     "dn": "uni/infra/accportprof-LEAF\"{{ leaf_num }}\"_PROF/hports-LEAF\"{{ leaf_num }}\"_FEX101_NIF-typ-range",
+                     "name": "LEAF\"{{ leaf_num }}\"_FEX101_NIF",
+                     "rn": "hports-LEAF\"{{ leaf_num }}\"_FEX101_NIF-typ-range",
                      "status": "created,modified"
                   },
                   "children": [
                      {
                         "infraPortBlk": {
                            "attributes": {
-                              "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range/portblk-block2",
+                              "dn": "uni/infra/accportprof-LEAF\"{{ leaf_num }}\"_PROF/hports-LEAF\"{{ leaf_num }}\"_FEX101_NIF-typ-range/portblk-block2",
                               "fromPort": "9",
                               "toPort": "10",
                               "name": "block2",
@@ -72,7 +73,7 @@
                      {
                         "infraRsAccBaseGrp": {
                            "attributes": {
-                              "tDn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
+                              "tDn": "uni/infra/fexprof-LEAF\"{{ leaf_num }}\"_FEX101/fexbundle-LEAF\"{{ leaf_num }}\"_FEX101",
                               "status": "created,modified"
                            },
                            "children": []
@@ -97,7 +98,7 @@
                   "attributes": {
                      "mode": "native",
                      "encap": "vlan-3001",
-                     "tDn": "topology/pod-1/paths-\"{{ item }}\"/extpaths-101/pathep-[eth1/1]",
+                     "tDn": "topology/pod-1/paths-\"{{ leaf_num }}\"/extpaths-101/pathep-[eth1/1]",
                      "status": "created"
                   },
                   "children": []
