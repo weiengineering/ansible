@@ -97,7 +97,7 @@
                   "attributes": {
                      "mode": "native",
                      "encap": "vlan-3001",
-                     "tDn": "topology/pod-1/paths-102/extpaths-101/pathep-[eth1/2]",
+                     "tDn": "topology/pod-1/paths-102/extpaths-101/pathep-[eth1/3]",
                      "status": "created"
                   },
                   "children": []
