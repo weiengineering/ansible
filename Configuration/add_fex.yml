@@ -2,7 +2,6 @@
   hosts: all
   connection: local
   gather_facts: no
-  leaf_num: 103
 
 
   tasks:
