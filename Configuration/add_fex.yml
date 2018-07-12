@@ -28,7 +28,7 @@
                            "attributes": {
                               "dn": "uni/infra/fexprof-LEAF102_FEX101/fexbundle-LEAF102_FEX101",
                               "name": "LEAF102_FEX101",
-                              "rn": "fexbundle-102_FEX101",
+                              "rn": "fexbundle-LEAF102_FEX101",
                               "status": "created,modified"
                            },
                            "children": []
