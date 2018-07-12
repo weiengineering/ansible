@@ -28,7 +28,7 @@
                            "attributes": {
                               "dn": "uni/infra/fexprof-LEAF102_FEX101/fexbundle-LEAF102_FEX101",
                               "name": "LEAF102_FEX101",
-                              "rn": "fexbundle-103_FEX101",
+                              "rn": "fexbundle-102_FEX101",
                               "status": "created,modified"
                            },
                            "children": []
@@ -97,7 +97,7 @@
                   "attributes": {
                      "mode": "native",
                      "encap": "vlan-3001",
-                     "tDn": "topology/pod-1/paths-103/extpaths-101/pathep-[eth1/1]",
+                     "tDn": "topology/pod-1/paths-102/extpaths-101/pathep-[eth1/1]",
                      "status": "created"
                   },
                   "children": []
