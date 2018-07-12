@@ -17,18 +17,18 @@
            {
    "infraFexP": {
       "attributes": {
-         "dn": "uni/infra/fexprof-LEAF102_FEX101",
-         "name": "LEAF102_FEX101",
-         "rn": "fexprof-LEAF102_FEX101",
+         "dn": "uni/infra/fexprof-LEAF"{{ item }}"_FEX101",
+         "name": "LEAF"{{ item }}"_FEX101",
+         "rn": "fexprof-LEAF"{{ item }}"_FEX101",
          "status": "created,modified"
       },
       "children": [
          {
             "infraFexBndlGrp": {
                "attributes": {
-                  "dn": "uni/infra/fexprof-LEAF102_FEX101/fexbundle-LEAF102_FEX101",
-                  "name": "LEAF102_FEX101",
-                  "rn": "fexbundle-LEAF102_FEX101",
+                  "dn": "uni/infra/fexprof-LEAF"{{ item }}"_FEX101/fexbundle-LEAF"{{ item }}"_FEX101",
+                  "name": "LEAF"{{ item }}"_FEX101",
+                  "rn": "fexbundle-"{{ item }}"_FEX101",
                   "status": "created,modified"
                },
                "children": []
@@ -37,7 +37,10 @@
       ]
    }
 }
-
+  loop:
+     - 103
+     - 104
+     
     - name: Create FEX NIF Uplink
       aci_rest:
          hostname: "{{ inventory_hostname }}"
@@ -50,16 +53,16 @@
            {
    "infraHPortS": {
       "attributes": {
-         "dn": "uni/infra/accportprof-LEAF102_PROF/hports-LEAF102_FEX101_NIF-typ-range",
-         "name": "LEAF102_FEX101_NIF",
-         "rn": "hports-LEAF102_FEX101_NIF-typ-range",
+         "dn": "uni/infra/accportprof-LEAF"{{ item }}"_PROF/hports-LEAF"{{ item }}"_FEX101_NIF-typ-range",
+         "name": "LEAF"{{ item }}"_FEX101_NIF",
+         "rn": "hports-LEAF"{{ item }}"_FEX101_NIF-typ-range",
          "status": "created,modified"
       },
       "children": [
          {
             "infraPortBlk": {
                "attributes": {
-                  "dn": "uni/infra/accportprof-LEAF102_PROF/hports-LEAF102_FEX101_NIF-typ-range/portblk-block2",
+                  "dn": "uni/infra/accportprof-LEAF"{{ item }}"_PROF/hports-LEAF"{{ item }}"_FEX101_NIF-typ-range/portblk-block2",
                   "fromPort": "9",
                   "toPort": "10",
                   "name": "block2",
@@ -72,7 +75,7 @@
          {
             "infraRsAccBaseGrp": {
                "attributes": {
-                  "tDn": "uni/infra/fexprof-LEAF102_FEX101/fexbundle-LEAF102_FEX101",
+                  "tDn": "uni/infra/fexprof-LEAF"{{ item }}"_FEX101/fexbundle-LEAF"{{ item }}"_FEX101",
                   "status": "created,modified"
                },
                "children": []
@@ -81,6 +84,9 @@
       ]
    }
 }
+  loop:
+     - 103
+     - 104
 
     - name: Static Port Binding
       aci_rest:
@@ -96,10 +102,12 @@
       "attributes": {
          "mode": "native",
          "encap": "vlan-3001",
-         "tDn": "topology/pod-1/paths-102/extpaths-101/pathep-[eth1/1]",
+         "tDn": "topology/pod-1/paths-"{{ item }}"/extpaths-101/pathep-[eth1/1]",
          "status": "created"
       },
       "children": []
    }
 }
-    
+  loop:
+     - 103
+     - 104    
