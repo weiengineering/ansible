@@ -15,29 +15,28 @@
          path: /api/mo/uni.json
          content:
            {
-   "infraFexP": {
-      "attributes": {
-         "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101",
-         "name": "LEAF\"{{ item }}\"_FEX101",
-         "rn": "fexprof-LEAF\"{{ item }}\"_FEX101",
-         "status": "created,modified"
-      },
-      "children": [
-         {
-            "infraFexBndlGrp": {
-               "attributes": {
-                  "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
-                  "name": "LEAF\"{{ item }}\"_FEX101",
-                  "rn": "fexbundle-\"{{ item }}\"_FEX101",
-                  "status": "created,modified"
-               },
-               "children": []
+               "infraFexP": {
+                  "attributes": {
+                     "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101",
+                     "name": "LEAF\"{{ item }}\"_FEX101",
+                     "rn": "fexprof-LEAF\"{{ item }}\"_FEX101",
+                     "status": "created,modified"
+                  },
+                  "children": [
+                     {
+                        "infraFexBndlGrp": {
+                           "attributes": {
+                              "dn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
+                              "name": "LEAF\"{{ item }}\"_FEX101",
+                              "rn": "fexbundle-\"{{ item }}\"_FEX101",
+                              "status": "created,modified"
+                           },
+                           "children": []
+                        }
+                     }
+                  ]
+               }
             }
-         }
-      ]
-   }
-}
-
      
     - name: Create FEX NIF Uplink
       aci_rest:
@@ -49,39 +48,39 @@
          path: /api/mo/uni.json
          content:
            {
-   "infraHPortS": {
-      "attributes": {
-         "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
-         "name": "LEAF\"{{ item }}\"_FEX101_NIF",
-         "rn": "hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
-         "status": "created,modified"
-      },
-      "children": [
-         {
-            "infraPortBlk": {
-               "attributes": {
-                  "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range/portblk-block2",
-                  "fromPort": "9",
-                  "toPort": "10",
-                  "name": "block2",
-                  "rn": "portblk-block2",
-                  "status": "created,modified"
-               },
-               "children": []
+               "infraHPortS": {
+                  "attributes": {
+                     "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
+                     "name": "LEAF\"{{ item }}\"_FEX101_NIF",
+                     "rn": "hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range",
+                     "status": "created,modified"
+                  },
+                  "children": [
+                     {
+                        "infraPortBlk": {
+                           "attributes": {
+                              "dn": "uni/infra/accportprof-LEAF\"{{ item }}\"_PROF/hports-LEAF\"{{ item }}\"_FEX101_NIF-typ-range/portblk-block2",
+                              "fromPort": "9",
+                              "toPort": "10",
+                              "name": "block2",
+                              "rn": "portblk-block2",
+                              "status": "created,modified"
+                           },
+                           "children": []
+                        }
+                     },
+                     {
+                        "infraRsAccBaseGrp": {
+                           "attributes": {
+                              "tDn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
+                              "status": "created,modified"
+                           },
+                           "children": []
+                        }
+                     }
+                  ]
+               }
             }
-         },
-         {
-            "infraRsAccBaseGrp": {
-               "attributes": {
-                  "tDn": "uni/infra/fexprof-LEAF\"{{ item }}\"_FEX101/fexbundle-LEAF\"{{ item }}\"_FEX101",
-                  "status": "created,modified"
-               },
-               "children": []
-            }
-         }
-      ]
-   }
-}
 
 
     - name: Static Port Binding
@@ -94,17 +93,16 @@
          path: /api/node/mo/uni/tn-Josh_C_Nutanix/ap-Josh_C_Nutanix_APP/epg-Josh_C_Prod_EPG.json
          content:
             {
-   "fvRsPathAtt": {
-      "attributes": {
-         "mode": "native",
-         "encap": "vlan-3001",
-         "tDn": "topology/pod-1/paths-\"{{ item }}\"/extpaths-101/pathep-[eth1/1]",
-         "status": "created"
-      },
-      "children": []
-   }
-}
-  with_list:
-  - 103
-  - 104
-  
+               "fvRsPathAtt": {
+                  "attributes": {
+                     "mode": "native",
+                     "encap": "vlan-3001",
+                     "tDn": "topology/pod-1/paths-\"{{ item }}\"/extpaths-101/pathep-[eth1/1]",
+                     "status": "created"
+                  },
+                  "children": []
+               }
+            }
+    loop:
+    - 103
+    - 104
