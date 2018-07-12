@@ -82,4 +82,24 @@
    }
 }
 
+    - name: Static Port Binding
+      aci_rest:
+         hostname: "{{ inventory_hostname }}"
+         username: "admin"
+         password: "Worldcom1"
+         validate_certs: no
+         method: post
+         path: /api/node/mo/uni/tn-Josh_C_Nutanix/ap-Josh_C_Nutanix_APP/epg-Josh_C_Prod_EPG.json
+         content:
+            {
+   "fvRsPathAtt": {
+      "attributes": {
+         "mode": "native",
+         "encap": "vlan-3001",
+         "tDn": "topology/pod-1/paths-102/extpaths-101/pathep-[eth1/1]",
+         "status": "created"
+      },
+      "children": []
+   }
+}
     
